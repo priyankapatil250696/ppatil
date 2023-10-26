@@ -15,13 +15,7 @@ jobs:
      - name: Checkout
        uses: actions/checkout@v1
 
-     - name: Configure AWS credentials
-       uses: aws-actions/configure-aws-credentials@v1
-       with:
-         aws-access-key-id: ${{ secrets.AWS_ACCESS_KRY_ID }}
-         aws-secret-access-key: ${{ secrets.AWS_SECRET-ACCESS-KEY }}
-         aws-region: us-east-1
-
+     
      - name: Set up environments
        run:  |
            chnmod +x ${ GITHUB_WORKSPACE }/Backup.sh
