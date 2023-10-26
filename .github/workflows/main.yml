@@ -23,8 +23,7 @@ jobs:
 
      - name: Run Backup Script
        run: ./Backup.sh
-       env: 
-         SECRET_KEY: ${{ secrets.SECRETS }}
+      
            
 
            
