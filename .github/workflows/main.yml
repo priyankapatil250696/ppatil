@@ -19,7 +19,7 @@ jobs:
      - name: Set up environments
        run:  |
            chmod +x Backup.sh
-           sudo apt -install -y some -dependency
+          
 
      - name: Run Backup Script
        run: ./Backup.sh
