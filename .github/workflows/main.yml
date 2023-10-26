@@ -18,11 +18,11 @@ jobs:
      
      - name: Set up environments
        run:  |
-           chnmod +x ${ GITHUB_WORKSPACE }/Backup.sh
+           chnmod +x Backup.sh
            sudo apt -get- install -y some -dependency
 
      - name: Run Backup Script
-       run: ./${ GITHUB_WORKSPACE }/Backup.sh
+       run: ./Backup.sh
        env: 
          SECRET_KEY: ${{ secrets.SECRETS }}
            
