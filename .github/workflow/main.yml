@@ -24,5 +24,4 @@ jobs:
     - name: Run backup script 
       run: ./Backup.sh
 
-    - name: stores in s3  bucket 
-      run: s3 cp ppatil s3://mysonpriyansh
+    
