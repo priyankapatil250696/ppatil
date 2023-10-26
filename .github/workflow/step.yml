@@ -1,0 +1,28 @@
+
+name: Github Backup
+
+on:
+  push:
+    branches:
+    - main
+    - master
+  schedule:
+    - cron: '* * * * *'
+    
+jobs:
+   Backup:
+     runs-on: ubuntu-latest
+     steps:
+     - name: Checkout
+       uses: actions/checkout@v1
+
+     
+     - name: Set up environments
+       run:  |
+           chmod +x Backup.sh
+
+    - name: Run backup script 
+      run: ./Backup.sh
+
+    - name: stores in s3  bucket 
+      run: s3 cp ppatil s3://mysonpriyansh
