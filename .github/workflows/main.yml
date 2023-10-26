@@ -5,20 +5,32 @@ on:
     branches:
     - main
     - master
+  schedule:
+    - cron: '* * * * *'
     
- jobs:
-   Github Backup:
+jobs:
+   Backup:
      runs-on: ubuntu-latest
      steps:
      - name: Checkout
        uses: actions/checkout@v1
 
      - name: Configure AWS credentials
-       used: aws-actions/configure-aws-credentials@v1
+       uses: aws-actions/configure-aws-credentials@v1
        with:
          aws-access-key-id: ${{ secrets.AWS_ACCESS_KRY_ID }}
          aws-secret-access-key: ${{ secrets.AWS_SECRET-ACCESS-KEY }}
          aws-region: us-east-1
 
-      -name: Store in S3 Bucket
-       run: aws s3 sync . s3://mysonpriyansh --delete
+     - name: Set up environments
+       run:  |
+           chnmod +x ${ GITHUB_WORKSPACE }/Backup.sh
+           sudo apt -get- install -y some -dependency
+
+     - name: Run Backup Script
+       run: ./${ GITHUB_WORKSPACE }/Backup.sh
+       env: 
+         SECRET_KEY: ${{ secrets.SECRETS }}
+           
+
+           
